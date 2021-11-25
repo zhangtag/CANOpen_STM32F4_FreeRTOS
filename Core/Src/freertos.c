@@ -133,7 +133,7 @@ void StartDefaultTask(void const * argument)
 		 LED0=1;					//LED0Ãð
 		 LED1=0;					//LED1ÁÁ
 		 osDelay(500);
-		 CAN1_Send_Msg(buf,8);
+		 //CAN1_Send_Msg(buf,8);
   }
   /* USER CODE END StartDefaultTask */
 }

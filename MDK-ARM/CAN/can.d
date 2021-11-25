@@ -35,3 +35,7 @@ can\can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h
 can\can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 can\can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 can\can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
+can\can.o: ..\CANOpen\inc\applicfg.h
+can\can.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+can\can.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+can\can.o: ../Core/Inc/can.h

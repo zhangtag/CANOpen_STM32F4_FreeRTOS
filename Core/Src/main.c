@@ -22,12 +22,13 @@
 #include "cmsis_os.h"
 #include "can.h"
 #include "rtc.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "canfestival.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -93,8 +94,10 @@ int main(void)
   MX_CAN1_Init();
   MX_RTC_Init();
   MX_USART1_UART_Init();
+  MX_TIM12_Init();
   /* USER CODE BEGIN 2 */
    CAN_Config();
+	 canopen_init();
   /* USER CODE END 2 */
 
   /* Call init function for freertos objects (in freertos.c) */

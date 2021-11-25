@@ -49,3 +49,7 @@ can\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
 can\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
 can\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 can\freertos.o: ../Core/Inc/can.h
+can\freertos.o: ..\CANOpen\inc\applicfg.h
+can\freertos.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+can\freertos.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+can\freertos.o: ../Core/Inc/can.h

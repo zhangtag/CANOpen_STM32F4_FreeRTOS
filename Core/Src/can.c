@@ -22,7 +22,6 @@
 
 /* USER CODE BEGIN 0 */
 CAN_TxHeaderTypeDef	TxHeader;      //发送
-CAN_RxHeaderTypeDef	RxHeader;      //接收
 /* USER CODE END 0 */
 
 CAN_HandleTypeDef hcan1;
@@ -171,9 +170,6 @@ void CAN_Config(void)
   TxHeader.DLC = 2;
   TxHeader.TransmitGlobalTime = DISABLE;
 }
-
-//CAN_HandleTypeDef hcan1;
-//CAN_HandleTypeDef hcan2;
 
 CAN_TxHeaderTypeDef	TxHeader;      //发送
 CAN_RxHeaderTypeDef	RxHeader;      //接收
