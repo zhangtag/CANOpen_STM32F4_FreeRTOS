@@ -76,3 +76,4 @@ can\main.o: ..\CANOpen\inc\sync.h
 can\main.o: ..\CANOpen\inc\nmtSlave.h
 can\main.o: ..\CANOpen\inc\nmtMaster.h
 can\main.o: ..\CANOpen\inc\emcy.h
+can\main.o: ..\CANOpen\SillySlave\CO_slave.h

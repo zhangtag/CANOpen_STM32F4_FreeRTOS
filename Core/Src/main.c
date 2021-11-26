@@ -29,6 +29,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "canfestival.h"
+#include "CO_slave.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -178,11 +179,17 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
   /* USER CODE BEGIN Callback 0 */
 
   /* USER CODE END Callback 0 */
-  if (htim->Instance == TIM1) {
-    HAL_IncTick();
+  if (htim->Instance == TIM1) 
+	{
+			HAL_IncTick();
   }
   /* USER CODE BEGIN Callback 1 */
-
+  if(htim==(&htim12))
+  {
+			last_counter_val=0;
+			TIMEVAL elapsed_time=0;
+			TimeDispatch();
+  }
   /* USER CODE END Callback 1 */
 }
 
