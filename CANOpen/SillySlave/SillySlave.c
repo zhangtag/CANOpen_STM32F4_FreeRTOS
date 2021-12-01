@@ -7,13 +7,6 @@
 /* Declaration of mapped variables                                        */
 /**************************************************************************/
 UNS8 LifeSignal = 0x0;		/* Mapped at index 0x2001, subindex 0x00 */
-UNS8 ADCDATA[] =		/* Mapped at index 0x2002, subindex 0x01 - 0x04 */
-  {
-    0x1,	/* 1 */
-    0x2,	/* 2 */
-    0x3,	/* 3 */
-    0x4	/* 4 */
-  };
 
 /**************************************************************************/
 /* Declaration of value range types                                       */
@@ -116,7 +109,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                     UNS32 SillySlave_obj1016[]={0};
 
 /* index 0x1017 :   Producer Heartbeat Time. */
-                    UNS16 SillySlave_obj1017 = 0x3E8;	/* 1000 */
+                    UNS16 SillySlave_obj1017 = 0x7D0;	/* 2000 */
                     ODCallback_t SillySlave_Index1017_callbacks[] = 
                      {
                        NULL,
@@ -202,17 +195,6 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                        { RO, uint8, sizeof (UNS8), (void*)&LifeSignal }
                      };
 
-/* index 0x2002 :   Mapped variable ADCDATA */
-                    UNS8 SillySlave_highestSubIndex_obj2002 = 4; /* number of subindex - 1*/
-                    subindex SillySlave_Index2002[] = 
-                     {
-                       { RO, uint8, sizeof (UNS8), (void*)&SillySlave_highestSubIndex_obj2002 },
-                       { RW, uint8, sizeof (UNS8), (void*)&ADCDATA[0] },
-                       { RW, uint8, sizeof (UNS8), (void*)&ADCDATA[1] },
-                       { RW, uint8, sizeof (UNS8), (void*)&ADCDATA[2] },
-                       { RW, uint8, sizeof (UNS8), (void*)&ADCDATA[3] }
-                     };
-
 /**************************************************************************/
 /* Declaration of pointed variables                                       */
 /**************************************************************************/
@@ -229,7 +211,6 @@ const indextable SillySlave_objdict[] =
   { (subindex*)SillySlave_Index1800,sizeof(SillySlave_Index1800)/sizeof(SillySlave_Index1800[0]), 0x1800},
   { (subindex*)SillySlave_Index1A00,sizeof(SillySlave_Index1A00)/sizeof(SillySlave_Index1A00[0]), 0x1A00},
   { (subindex*)SillySlave_Index2001,sizeof(SillySlave_Index2001)/sizeof(SillySlave_Index2001[0]), 0x2001},
-  { (subindex*)SillySlave_Index2002,sizeof(SillySlave_Index2002)/sizeof(SillySlave_Index2002[0]), 0x2002},
 };
 
 const indextable * SillySlave_scanIndexOD (UNS16 wIndex, UNS32 * errorCode, ODCallback_t **callbacks)
@@ -247,7 +228,6 @@ const indextable * SillySlave_scanIndexOD (UNS16 wIndex, UNS32 * errorCode, ODCa
 		case 0x1800: i = 7;*callbacks = SillySlave_Index1800_callbacks; break;
 		case 0x1A00: i = 8;break;
 		case 0x2001: i = 9;break;
-		case 0x2002: i = 10;break;
 		default:
 			*errorCode = OD_NO_SUCH_OBJECT;
 			return NULL;

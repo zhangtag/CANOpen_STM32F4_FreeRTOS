@@ -9,9 +9,10 @@
 
 
 /* 定时器TIM相关变量 */
-extern TIMEVAL last_counter_val;
-extern TIMEVAL elapsed_time;
+extern int last_counter_val;
+extern int elapsed_time;
 
+//extern void timerforcan();
 extern CO_Data *OD_Data;
 
 void CO_slave_initialisation(CO_Data* d);

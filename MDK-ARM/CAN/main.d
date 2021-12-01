@@ -29,8 +29,6 @@ can\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
 can\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
 can\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 can\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
-can\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h
-can\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h
 can\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 can\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 can\main.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
@@ -53,12 +51,10 @@ can\main.o: ..\CANOpen\inc\applicfg.h
 can\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 can\main.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 can\main.o: ../Core/Inc/can.h
-can\main.o: ../Core/Inc/rtc.h
 can\main.o: ../Core/Inc/tim.h
 can\main.o: ../Core/Inc/usart.h
 can\main.o: ../Core/Inc/gpio.h
 can\main.o: ..\CANOpen\inc\canfestival.h
-can\main.o: ..\CANOpen\inc\can_driver.h
 can\main.o: ..\CANOpen\inc\data.h
 can\main.o: ..\CANOpen\inc\def.h
 can\main.o: ..\CANOpen\inc\config.h

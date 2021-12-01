@@ -36,8 +36,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 //#define MS_TO_TIMEVAL(ms) (ms * 250)
 //#define US_TO_TIMEVAL(us) (us>>2)
 
-// The timer is incrementing every 8 us.
-#define MS_TO_TIMEVAL(ms) ((ms) * 125)
-#define US_TO_TIMEVAL(us) ((us)>>3)
+// The timer is incrementing every 1000 us.
+#define MS_TO_TIMEVAL(ms) ((ms) * 1)
+#define US_TO_TIMEVAL(us) ((us)/1000)
 
 #endif

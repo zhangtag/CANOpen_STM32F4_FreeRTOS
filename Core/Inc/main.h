@@ -65,9 +65,7 @@ void Error_Handler(void);
 /* USER CODE BEGIN Private defines */
 
 
-#define SYSTEM_SUPPORT_OS		0		//定义系统文件夹是否支持OS
-///////////////////////////////////////////////////////////////////////////////////
-//定义一些常用的数据类型短关键字 
+#define SYSTEM_SUPPORT_OS		0	
 typedef int32_t  s32;
 typedef int16_t s16;
 typedef int8_t  s8;

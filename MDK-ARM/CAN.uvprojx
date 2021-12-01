@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F407xx</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;     ../Drivers/STM32F4xx_HAL_Driver/Inc;     ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;     ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;     ../Drivers/CMSIS/Include;     ../Middlewares/Third_Party/FreeRTOS/Source/include;     ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;     ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;     ..\CANOpen\inc;     ..\CANOpen\SillySlave</IncludePath>
+              <IncludePath>../Core/Inc;                                        ../Drivers/STM32F4xx_HAL_Driver/Inc;                                        ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy;                                        ../Drivers/CMSIS/Device/ST/STM32F4xx/Include;                                        ../Drivers/CMSIS/Include;                                        ../Middlewares/Third_Party/FreeRTOS/Source/include;                                        ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;                                        ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F;                                        ..\CANOpen\inc;                                        ..\CANOpen\SillySlave</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -401,6 +401,11 @@
               <FileName>SillySlave.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\CANOpen\SillySlave\SillySlave.c</FilePath>
+            </File>
+            <File>
+              <FileName>can_timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Core\Src\can_timer.c</FilePath>
             </File>
             <File>
               <FileName>main.c</FileName>
@@ -472,11 +477,6 @@
               <FileName>can.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Core/Src/can.c</FilePath>
-            </File>
-            <File>
-              <FileName>rtc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Core/Src/rtc.c</FilePath>
             </File>
             <File>
               <FileName>tim.c</FileName>
@@ -679,16 +679,6 @@
               <FileName>stm32f4xx_hal_exti.c</FileName>
               <FileType>1</FileType>
               <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_exti.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f4xx_hal_rtc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc.c</FilePath>
-            </File>
-            <File>
-              <FileName>stm32f4xx_hal_rtc_ex.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>../Drivers/STM32F4xx_HAL_Driver/Src/stm32f4xx_hal_rtc_ex.c</FilePath>
             </File>
             <File>
               <FileName>stm32f4xx_hal_tim.c</FileName>

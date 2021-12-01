@@ -22,6 +22,7 @@
 
 /* USER CODE BEGIN 0 */
 CAN_TxHeaderTypeDef	TxHeader;      //发送
+CAN_RxHeaderTypeDef	RxHeader;      //接收
 /* USER CODE END 0 */
 
 CAN_HandleTypeDef hcan1;
@@ -119,7 +120,6 @@ void HAL_CAN_MspDeInit(CAN_HandleTypeDef* canHandle)
 
 /* USER CODE BEGIN 1 */
 
-
 void CAN_Config(void)
 {
   CAN_FilterTypeDef  sFilterConfig;
@@ -171,29 +171,46 @@ void CAN_Config(void)
   TxHeader.TransmitGlobalTime = DISABLE;
 }
 
-CAN_TxHeaderTypeDef	TxHeader;      //发送
-CAN_RxHeaderTypeDef	RxHeader;      //接收
+unsigned char canSend(CAN_PORT port, Message *m)
+{
+    u8 i = 0;
+    u32 TxMailbox = 0;
+    u8 message[8];
+    TxHeader.StdId = m->cob_id; //
+    TxHeader.ExtId = 0;         //
+    TxHeader.IDE = CAN_ID_STD;  
+    TxHeader.RTR = m->rtr;      
+    TxHeader.DLC = m->len;
+    for (i = 0; i < m->len; i++)
+    {
+        message[i] = m->data[i];
+    }
+    if (HAL_CAN_AddTxMessage(&hcan1, &TxHeader, message, &TxMailbox) != HAL_OK) //锟斤拷锟斤拷
+    {
+        return 1;
+    }
+    while (HAL_CAN_GetTxMailboxesFreeLevel(&hcan1) != 3)
+    {
+    }
 
-//can发送一组数据(固定格式:ID为0X12,标准帧,数据帧)	
-//len:数据长度(最大为8)				     
-//msg:数据指针,最大为8个字节.
-//返回值:0,成功;
-//		 其他,失败;
+    return 0;
+}
+
 u8 CAN1_Send_Msg(u8* msg,u8 len)
 {
     u8 i=0;
 	  u32 TxMailbox=0;
   	u8 message[8];
-    TxHeader.StdId=0X12;        //标准标识符
-    TxHeader.ExtId=0x12;        //扩展标识符(29位)
-    TxHeader.IDE=CAN_ID_STD;    //使用标准帧
-    TxHeader.RTR=CAN_RTR_DATA;  //数据帧
+    TxHeader.StdId=0X12;        
+    TxHeader.ExtId=0x12;        
+    TxHeader.IDE=CAN_ID_STD;    
+    TxHeader.RTR=CAN_RTR_DATA;  
     TxHeader.DLC=len;                
     for(i=0;i<len;i++)
     {
-		message[i]=msg[i];
-	}
-    if(HAL_CAN_AddTxMessage(&hcan1, &TxHeader, message, &TxMailbox) != HAL_OK)//发送
+			message[i]=msg[i];
+		}
+    if(HAL_CAN_AddTxMessage(&hcan1, &TxHeader, message, &TxMailbox) != HAL_OK)
 	{
 		return 1;
 	}

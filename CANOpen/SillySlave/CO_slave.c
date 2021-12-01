@@ -2,27 +2,28 @@
 #include "CO_slave.h"
 #include "can.h"
 #include "main.h"
-#include "stm32f4xx_hal_tim.h"
+#include "canfestival.h"
 #include "tim.h"
+
 CO_Data *OD_Data = &SillySlave_Data;
 
 void CO_slave_initialisation(CO_Data *d)
 {
-    UNS32 PDO1_COBID = 0x0180 + NODE_MASTER;
-    UNS32 size = sizeof(PDO1_COBID);
+//    UNS32 PDO1_COBID = 0x0180 + NODE_MASTER;
+//    UNS32 size = sizeof(PDO1_COBID);
 
-    printf("CO_slave_initialisation\n");
+//    printf("CO_slave_initialisation\n");
 
-    /* sets TXPDO1 COB-ID to match master node ID */
-    writeLocalDict(
-        OD_Data,     /*CO_Data* d*/
-        0x1800,      /*UNS16 index*/
-        0x01,        /*UNS8 subind*/
-        &PDO1_COBID, /*void * pSourceData,*/
-        &size,       /* UNS32 * pExpectedSize*/
-        RW);         /* UNS8 checkAccess */
+//    /* sets TXPDO1 COB-ID to match master node ID */
+//    writeLocalDict(
+//        OD_Data,     /*CO_Data* d*/
+//        0x1800,      /*UNS16 index*/
+//        0x01,        /*UNS8 subind*/
+//        &PDO1_COBID, /*void * pSourceData,*/
+//        &size,       /* UNS32 * pExpectedSize*/
+//        RW);         /* UNS8 checkAccess */
 
-    /* value sent to master at each SYNC received */
+//    /* value sent to master at each SYNC received */
     LifeSignal = 0;
 }
 
@@ -79,54 +80,8 @@ UNS32 CO_slave_storeODSubIndex(CO_Data *d, UNS16 wIndex, UNS8 bSubindex)
 }
 
 
-TIMEVAL last_counter_val = 0;
-TIMEVAL elapsed_time = 0;
 
-void setTimer(TIMEVAL value)
-{
-    uint32_t timer = __HAL_TIM_GET_COUNTER(&htim12); // Copy the value of the running timer
-    elapsed_time += timer - last_counter_val;
-    last_counter_val = htim12.Init.Period - value;
-    __HAL_TIM_SET_COUNTER(&htim12, htim12.Init.Period - value);
-    HAL_TIM_Base_Start_IT(&htim12);
-	
-    //	__HAL_TIM_SET_AUTORELOAD(&htim12,value);
-}
-TIMEVAL getElapsedTime(void)
-{
-    uint32_t timer = __HAL_TIM_GET_COUNTER(&htim12); // Copy the value of the running timer
-	
-    if (timer < last_counter_val)
-        timer += htim12.Init.Period;
 
-    TIMEVAL elapsed = timer - last_counter_val + elapsed_time;
-
-    return elapsed;
-}
-unsigned char canSend(CAN_PORT port, Message *m)
-{
-    u8 i = 0;
-    u32 TxMailbox = 0;
-    u8 message[8];
-    TxHeader.StdId = m->cob_id; //
-    TxHeader.ExtId = 0;         //
-    TxHeader.IDE = CAN_ID_STD;  
-    TxHeader.RTR = m->rtr;      
-    TxHeader.DLC = m->len;
-    for (i = 0; i < m->len; i++)
-    {
-        message[i] = m->data[i];
-    }
-    if (HAL_CAN_AddTxMessage(&hcan1, &TxHeader, message, &TxMailbox) != HAL_OK) //����
-    {
-        return 1;
-    }
-    while (HAL_CAN_GetTxMailboxesFreeLevel(&hcan1) != 3)
-    {
-    }
-
-    return 0;
-}
 
 //void _CO_slave_init(CO_Data* NOT_USED1, UNS32 NOT_USED2)
 //{
@@ -153,6 +108,8 @@ int canopen_init(void)
     ///TimerInit();
 
     //StartTimerLoop(&_CO_slave_init);
+	  initTimer();
+		HAL_TIM_Base_Start_IT(&htim13);
 
     setNodeId(OD_Data, NODE_SLAVE);
     setState(OD_Data, Initialisation);

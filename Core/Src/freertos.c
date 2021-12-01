@@ -27,6 +27,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "can.h"
+#include "CO_slave.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -49,6 +50,9 @@
 
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
+osThreadId CANTaskHandle;
+osMutexId canfstvl_mutexHandle;
+osSemaphoreId canfstvl_timer_semHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -56,6 +60,7 @@ osThreadId defaultTaskHandle;
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
+void CANprocess_thread(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -84,10 +89,19 @@ void MX_FREERTOS_Init(void) {
   /* USER CODE BEGIN Init */
 
   /* USER CODE END Init */
+  /* Create the mutex(es) */
+  /* definition and creation of canfstvl_mutex */
+  osMutexDef(canfstvl_mutex);
+  canfstvl_mutexHandle = osMutexCreate(osMutex(canfstvl_mutex));
 
   /* USER CODE BEGIN RTOS_MUTEX */
   /* add mutexes, ... */
   /* USER CODE END RTOS_MUTEX */
+
+  /* Create the semaphores(s) */
+  /* definition and creation of canfstvl_timer_sem */
+  osSemaphoreDef(canfstvl_timer_sem);
+  canfstvl_timer_semHandle = osSemaphoreCreate(osSemaphore(canfstvl_timer_sem), 1);
 
   /* USER CODE BEGIN RTOS_SEMAPHORES */
   /* add semaphores, ... */
@@ -106,6 +120,10 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
+  /* definition and creation of CANTask */
+  osThreadDef(CANTask, CANprocess_thread, osPriorityIdle, 0, 128);
+  CANTaskHandle = osThreadCreate(osThread(CANTask), NULL);
+
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
   /* USER CODE END RTOS_THREADS */
@@ -122,20 +140,34 @@ void MX_FREERTOS_Init(void) {
 void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN StartDefaultTask */
-//		uint8_t buf[8] = {0x01,0x02,0x03,0x04,0x05,0x06,0x07,0x08};
-		
+
   /* Infinite loop */
   for(;;)
   {		 
-		LED0=0;			     	//LED0ÁÁ
-	   LED1=1;				 	//LED1Ãð
 		 osDelay(500);
-		 LED0=1;					//LED0Ãð
-		 LED1=0;					//LED1ÁÁ
-		 osDelay(500);
-		 //CAN1_Send_Msg(buf,8);
   }
   /* USER CODE END StartDefaultTask */
+}
+
+/* USER CODE BEGIN Header_CANprocess_thread */
+/**
+* @brief Function implementing the CANTask thread.
+* @param argument: Not used
+* @retval None
+*/
+/* USER CODE END Header_CANprocess_thread */
+void CANprocess_thread(void const * argument)
+{
+  /* USER CODE BEGIN CANprocess_thread */
+	 CAN_Config();
+	 canopen_init();
+  /* Infinite loop */
+  for(;;)
+  {
+    osDelay(10000);
+//		timerforCAN();
+  }
+  /* USER CODE END CANprocess_thread */
 }
 
 /* Private application code --------------------------------------------------*/

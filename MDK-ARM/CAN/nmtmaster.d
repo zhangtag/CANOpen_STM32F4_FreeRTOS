@@ -35,8 +35,6 @@ can\nmtmaster.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
 can\nmtmaster.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
 can\nmtmaster.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 can\nmtmaster.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
-can\nmtmaster.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h
-can\nmtmaster.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h
 can\nmtmaster.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 can\nmtmaster.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 can\nmtmaster.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
@@ -58,5 +56,4 @@ can\nmtmaster.o: ..\CANOpen\inc\nmtSlave.h
 can\nmtmaster.o: ..\CANOpen\inc\nmtMaster.h
 can\nmtmaster.o: ..\CANOpen\inc\emcy.h
 can\nmtmaster.o: ..\CANOpen\inc\canfestival.h
-can\nmtmaster.o: ..\CANOpen\inc\can_driver.h
 can\nmtmaster.o: ..\CANOpen\inc\sysdep.h

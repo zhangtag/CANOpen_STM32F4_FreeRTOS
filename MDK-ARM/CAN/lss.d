@@ -34,8 +34,6 @@ can\lss.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ex.h
 can\lss.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_ramfunc.h
 can\lss.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 can\lss.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
-can\lss.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h
-can\lss.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h
 can\lss.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h
 can\lss.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
 can\lss.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
@@ -58,5 +56,4 @@ can\lss.o: ..\CANOpen\inc\nmtMaster.h
 can\lss.o: ..\CANOpen\inc\emcy.h
 can\lss.o: ..\CANOpen\inc\lss.h
 can\lss.o: ..\CANOpen\inc\canfestival.h
-can\lss.o: ..\CANOpen\inc\can_driver.h
 can\lss.o: ..\CANOpen\inc\sysdep.h

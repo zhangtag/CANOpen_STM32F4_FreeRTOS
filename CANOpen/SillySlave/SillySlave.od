@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <!DOCTYPE PyObject SYSTEM "PyObjects.dtd">
-<PyObject module="node" class="Node" id="4625392656">
-<attr name="Profile" type="dict" id="4625418576" >
+<PyObject module="node" class="Node" id="83423624">
+<attr name="Profile" type="dict" id="83460440" >
 </attr>
 <attr name="Description" type="string">Silly Slave example for CANfestival,  (C)GMB 2008</attr>
-<attr name="Dictionary" type="dict" id="4625418864" >
+<attr name="Dictionary" type="dict" id="83460712" >
   <entry>
     <key type="numeric" value="4096" />
     <val type="numeric" value="33554432" />
@@ -15,7 +15,7 @@
   </entry>
   <entry>
     <key type="numeric" value="6144" />
-    <val type="list" id="4625352016" >
+    <val type="list" id="80870856" >
       <item type="string" value="{True:&quot;$NODEID+0x%X80&quot;%(base+1),False:0}[base&lt;4]" />
       <item type="numeric" value="1" />
       <item type="numeric" value="100" />
@@ -37,17 +37,17 @@
   </entry>
   <entry>
     <key type="numeric" value="6656" />
-    <val type="list" id="4625352096" >
+    <val type="list" id="80870792" >
       <item type="numeric" value="536936456" />
     </val>
   </entry>
   <entry>
     <key type="numeric" value="4119" />
-    <val type="numeric" value="1000" />
+    <val type="numeric" value="2000" />
   </entry>
   <entry>
     <key type="numeric" value="4120" />
-    <val type="list" id="4625352256" >
+    <val type="list" id="80870920" >
       <item type="numeric" value="17185" />
       <item type="numeric" value="18" />
       <item type="numeric" value="1" />
@@ -56,18 +56,18 @@
   </entry>
   <entry>
     <key type="numeric" value="4608" />
-    <val type="list" id="4625352336" >
+    <val type="list" id="80870536" >
       <item type="string" value="&quot;$NODEID+0x600&quot;" />
       <item type="string" value="&quot;$NODEID+0x580&quot;" />
     </val>
   </entry>
 </attr>
-<attr name="SpecificMenu" type="list" id="4625352416" >
+<attr name="SpecificMenu" type="list" id="80871112" >
 </attr>
-<attr name="ParamsDictionary" type="dict" id="4625419152" >
+<attr name="ParamsDictionary" type="dict" id="83460984" >
   <entry>
     <key type="numeric" value="4096" />
-    <val type="dict" id="4625419440" >
+    <val type="dict" id="83461256" >
       <entry>
         <key type="string" value="comment" />
         <val type="string" value="fake nr" />
@@ -76,7 +76,7 @@
   </entry>
   <entry>
     <key type="numeric" value="4608" />
-    <val type="dict" id="4625419728" >
+    <val type="dict" id="83461528" >
       <entry>
         <key type="string" value="callback" />
         <val type="True" value="" />
@@ -85,10 +85,10 @@
   </entry>
   <entry>
     <key type="numeric" value="6144" />
-    <val type="dict" id="4625420016" >
+    <val type="dict" id="83461800" >
       <entry>
         <key type="numeric" value="2" />
-        <val type="dict" id="4625424464" >
+        <val type="dict" id="83462072" >
           <entry>
             <key type="string" value="comment" />
             <val type="string" value="send PDO1 after each SYNC" />
@@ -97,7 +97,7 @@
       </entry>
       <entry>
         <key type="numeric" value="3" />
-        <val type="dict" id="4625424752" >
+        <val type="dict" id="83462344" >
           <entry>
             <key type="string" value="comment" />
             <val type="string" value="10mS" />
@@ -106,7 +106,7 @@
       </entry>
       <entry>
         <key type="numeric" value="5" />
-        <val type="dict" id="4625425040" >
+        <val type="dict" id="83462616" >
           <entry>
             <key type="string" value="comment" />
             <val type="string" value="not used with SYNC" />
@@ -117,10 +117,10 @@
   </entry>
   <entry>
     <key type="numeric" value="5120" />
-    <val type="dict" id="4625425328" >
+    <val type="dict" id="83462888" >
       <entry>
         <key type="numeric" value="1" />
-        <val type="dict" id="4625425616" >
+        <val type="dict" id="83463160" >
           <entry>
             <key type="string" value="comment" />
             <val type="string" value="" />
@@ -129,7 +129,7 @@
       </entry>
       <entry>
         <key type="numeric" value="2" />
-        <val type="dict" id="4625425904" >
+        <val type="dict" id="83463432" >
           <entry>
             <key type="string" value="comment" />
             <val type="string" value="" />
@@ -138,7 +138,7 @@
       </entry>
       <entry>
         <key type="numeric" value="3" />
-        <val type="dict" id="4625426192" >
+        <val type="dict" id="83463704" >
           <entry>
             <key type="string" value="comment" />
             <val type="string" value="" />
@@ -147,7 +147,7 @@
       </entry>
       <entry>
         <key type="numeric" value="4" />
-        <val type="dict" id="4625426480" >
+        <val type="dict" id="83464264" >
           <entry>
             <key type="string" value="comment" />
             <val type="string" value="" />
@@ -156,7 +156,7 @@
       </entry>
       <entry>
         <key type="numeric" value="5" />
-        <val type="dict" id="4625426768" >
+        <val type="dict" id="83464536" >
           <entry>
             <key type="string" value="comment" />
             <val type="string" value="" />
@@ -171,10 +171,10 @@
   </entry>
   <entry>
     <key type="numeric" value="6145" />
-    <val type="dict" id="4625427056" >
+    <val type="dict" id="83464808" >
       <entry>
         <key type="numeric" value="2" />
-        <val type="dict" id="4625427344" >
+        <val type="dict" id="83465080" >
           <entry>
             <key type="string" value="comment" />
             <val type="string" value="Invio ogni 2 SYNC" />
@@ -183,7 +183,7 @@
       </entry>
       <entry>
         <key type="numeric" value="3" />
-        <val type="dict" id="4625427632" >
+        <val type="dict" id="83465352" >
           <entry>
             <key type="string" value="comment" />
             <val type="string" value="10 mS" />
@@ -194,7 +194,7 @@
   </entry>
   <entry>
     <key type="numeric" value="4114" />
-    <val type="dict" id="4625427920" >
+    <val type="dict" id="83465624" >
       <entry>
         <key type="string" value="comment" />
         <val type="string" value="for timestamp" />
@@ -203,10 +203,10 @@
   </entry>
   <entry>
     <key type="numeric" value="6657" />
-    <val type="dict" id="4625428208" >
+    <val type="dict" id="83465896" >
       <entry>
         <key type="numeric" value="1" />
-        <val type="dict" id="4625428560" >
+        <val type="dict" id="83466168" >
           <entry>
             <key type="string" value="comment" />
             <val type="string" value="Rx dal punto di vista del master, MCA lo trasmette" />
@@ -217,10 +217,10 @@
   </entry>
   <entry>
     <key type="numeric" value="5632" />
-    <val type="dict" id="4625428848" >
+    <val type="dict" id="83466440" >
       <entry>
         <key type="numeric" value="1" />
-        <val type="dict" id="4625429136" >
+        <val type="dict" id="83466712" >
           <entry>
             <key type="string" value="comment" />
             <val type="string" value="Tx dal punto di vista del master, MC lo riceve" />
@@ -231,10 +231,10 @@
   </entry>
   <entry>
     <key type="numeric" value="4120" />
-    <val type="dict" id="4625429424" >
+    <val type="dict" id="83466984" >
       <entry>
         <key type="numeric" value="0" />
-        <val type="dict" id="4625429712" >
+        <val type="dict" id="83467256" >
           <entry>
             <key type="string" value="comment" />
             <val type="string" value="4 pseudorandomic numbers:" />
@@ -243,7 +243,7 @@
       </entry>
       <entry>
         <key type="numeric" value="1" />
-        <val type="dict" id="4625430000" >
+        <val type="dict" id="83467528" >
           <entry>
             <key type="string" value="comment" />
             <val type="string" value="" />
@@ -252,7 +252,7 @@
       </entry>
       <entry>
         <key type="numeric" value="2" />
-        <val type="dict" id="4625430288" >
+        <val type="dict" id="83467800" >
           <entry>
             <key type="string" value="comment" />
             <val type="string" value="" />
@@ -262,18 +262,18 @@
     </val>
   </entry>
 </attr>
-<attr name="UserMapping" type="dict" id="4625430576" >
+<attr name="UserMapping" type="dict" id="83468360" >
   <entry>
     <key type="numeric" value="8193" />
-    <val type="dict" id="4625430864" >
+    <val type="dict" id="83468632" >
       <entry>
         <key type="string" value="need" />
         <val type="False" value="" />
       </entry>
       <entry>
         <key type="string" value="values" />
-        <val type="list" id="4625352576" >
-          <item type="dict" id="4625431152" >
+        <val type="list" id="80871176" >
+          <item type="dict" id="83468904" >
             <entry>
               <key type="string" value="access" />
               <val type="string" value="ro" />
@@ -304,7 +304,7 @@
     </val>
   </entry>
 </attr>
-<attr name="DS302" type="dict" id="4625431440" >
+<attr name="DS302" type="dict" id="83469176" >
 </attr>
 <attr name="ProfileName" type="string" value="DS-301" />
 <attr name="Type" type="string">slave</attr>
