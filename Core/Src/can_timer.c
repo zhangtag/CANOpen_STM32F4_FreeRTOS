@@ -4,10 +4,10 @@
 #include "main.h"
 #include "tim.h"
 
-unsigned int TimeCNT=0;//时间计数
-unsigned int NextTime=0;//下一次触发时间计数
-unsigned int TIMER_MAX_COUNT=70000;//最大时间计数
-TIMEVAL last_time_set = TIMEVAL_MAX;//上一次的时间计数
+unsigned int TimeCNT = 0;			  //时间计数
+unsigned int NextTime = 0;			  //下一次触发时间计数
+unsigned int TIMER_MAX_COUNT = 70000; //最大时间计数
+TIMEVAL last_time_set = TIMEVAL_MAX;  //上一次的时间计数
 
 /**
  * Set the timer for the next alarm.
@@ -16,7 +16,7 @@ TIMEVAL last_time_set = TIMEVAL_MAX;//上一次的时间计数
  */
 void setTimer(TIMEVAL value)
 {
-	NextTime=(TimeCNT+value)%TIMER_MAX_COUNT;
+	NextTime = (TimeCNT + value) % TIMER_MAX_COUNT;
 }
 /**
  * Return the elapsed time to tell the stack how much time is spent since last call.
@@ -24,12 +24,12 @@ void setTimer(TIMEVAL value)
  */
 TIMEVAL getElapsedTime(void)
 {
-		int ret=0;
-		ret = TimeCNT> last_time_set ? TimeCNT - last_time_set : TimeCNT + TIMER_MAX_COUNT - last_time_set;
-		return ret;
+	int ret = 0;
+	ret = TimeCNT > last_time_set ? TimeCNT - last_time_set : TimeCNT + TIMER_MAX_COUNT - last_time_set;
+	return ret;
 }
 
-uint16_t count=0;
+
 /**
  * 处理定时器的函数 定时1ms
  */
@@ -37,21 +37,13 @@ uint16_t count=0;
 void timerforCAN(void)
 {
 	TimeCNT++;
-	if (TimeCNT>=TIMER_MAX_COUNT)
+	if (TimeCNT >= TIMER_MAX_COUNT)
 	{
-					TimeCNT=0;
+		TimeCNT = 0;
 	}
-	if (TimeCNT==NextTime)
+	if (TimeCNT == NextTime)
 	{
-						last_time_set = TimeCNT;
-					TimeDispatch();
-	}
-
-	count++;
-	if(count >= 1000)
-	{
-		count=0;
-		LED0 = ~LED0;
-		LED1 = ~LED0;
+		last_time_set = TimeCNT;
+		TimeDispatch();
 	}
 }

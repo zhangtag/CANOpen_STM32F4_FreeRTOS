@@ -30,21 +30,6 @@ typedef struct struct_s_BOARD s_BOARD;
 #include "applicfg.h"
 #include "can.h"
 
-/**
- * @brief The CAN board configuration
- * @ingroup can
- */
-
-//struct struct_s_BOARD {
-//  char busname[100]; /**< The bus name on which the CAN board is connected */
-//  char baudrate[4]; /**< The board baudrate */
-//};
-
-struct struct_s_BOARD {
-  char * busname;  /**< The bus name on which the CAN board is connected */
-  char * baudrate; /**< The board baudrate */
-};
-
 #ifndef DLL_CALL
 #if !defined(WIN32) || defined(__CYGWIN__) || defined(__MINGW32__)
 #define LIBAPI

@@ -7,12 +7,6 @@
 #define NODE_SLAVE  4
 #define BAUDRATE 1000
 
-
-/* 定时器TIM相关变量 */
-extern int last_counter_val;
-extern int elapsed_time;
-
-//extern void timerforcan();
 extern CO_Data *OD_Data;
 
 void CO_slave_initialisation(CO_Data* d);

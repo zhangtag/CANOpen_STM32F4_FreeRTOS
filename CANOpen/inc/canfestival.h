@@ -25,10 +25,12 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #ifndef __CAN_CANFESTIVAL__
 #define __CAN_CANFESTIVAL__
 
-//#include "applicfg.h"
-//#include "can_driver.h"
+#include "applicfg.h"
 #include "data.h"
+
+
 //#include "objdict.h"
+
 //#define CANFESTIVAL_CAN_DEVICE_NAME "can1"
 //#define CANFESTIVAL_TIMER_DEVICE_NAME "timer13"
 //#define CANFESTIVAL_TIMER_THREAD_PRIO 5
@@ -37,8 +39,9 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 //CAN_PORT canOpen(s_BOARD *board, CO_Data * d);
 //void StartTimerLoop(TimerCallback_t _init_callback);
 
-extern void initTimer(void);
-extern void timerforCAN(void);
+//extern void initTimer(void);
+//extern void timerforCAN(void);
+
 int canopen_init(void);
 UNS8 canSend(CAN_PORT port, Message *m);
 UNS8 canReceive(Message *m);

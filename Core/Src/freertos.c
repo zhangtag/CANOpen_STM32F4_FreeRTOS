@@ -51,6 +51,7 @@
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
 osThreadId CANTaskHandle;
+osMessageQId CAN_RX_MSGHandle;
 osMutexId canfstvl_mutexHandle;
 osSemaphoreId canfstvl_timer_semHandle;
 
@@ -71,7 +72,7 @@ void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackTy
 static StaticTask_t xIdleTaskTCBBuffer;
 static StackType_t xIdleStack[configMINIMAL_STACK_SIZE];
 
-void vApplicationGetIdleTaskMemory( StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize )
+void vApplicationGetIdleTaskMemory(StaticTask_t **ppxIdleTaskTCBBuffer, StackType_t **ppxIdleTaskStackBuffer, uint32_t *pulIdleTaskStackSize)
 {
   *ppxIdleTaskTCBBuffer = &xIdleTaskTCBBuffer;
   *ppxIdleTaskStackBuffer = &xIdleStack[0];
@@ -111,6 +112,11 @@ void MX_FREERTOS_Init(void) {
   /* start timers, add new ones, ... */
   /* USER CODE END RTOS_TIMERS */
 
+  /* Create the queue(s) */
+  /* definition and creation of CAN_RX_MSG */
+  osMessageQDef(CAN_RX_MSG, 10, CANmsgTypeDef);
+  CAN_RX_MSGHandle = osMessageCreate(osMessageQ(CAN_RX_MSG), NULL);
+
   /* USER CODE BEGIN RTOS_QUEUES */
   /* add queues, ... */
   /* USER CODE END RTOS_QUEUES */
@@ -121,7 +127,7 @@ void MX_FREERTOS_Init(void) {
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
   /* definition and creation of CANTask */
-  osThreadDef(CANTask, CANprocess_thread, osPriorityIdle, 0, 128);
+  osThreadDef(CANTask, CANprocess_thread, osPriorityNormal, 0, 2048);
   CANTaskHandle = osThreadCreate(osThread(CANTask), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
@@ -131,6 +137,7 @@ void MX_FREERTOS_Init(void) {
 }
 
 /* USER CODE BEGIN Header_StartDefaultTask */
+uint16_t count = 0;
 /**
   * @brief  Function implementing the defaultTask thread.
   * @param  argument: Not used
@@ -142,9 +149,17 @@ void StartDefaultTask(void const * argument)
   /* USER CODE BEGIN StartDefaultTask */
 
   /* Infinite loop */
-  for(;;)
-  {		 
-		 osDelay(500);
+  for (;;)
+  {
+		count++;
+		if (count >= 100)
+		{
+			count = 0;
+			LED0 = ~LED0;
+			LED1 = ~LED0;
+		}
+		else 
+			osDelay(10);
   }
   /* USER CODE END StartDefaultTask */
 }
@@ -159,13 +174,12 @@ void StartDefaultTask(void const * argument)
 void CANprocess_thread(void const * argument)
 {
   /* USER CODE BEGIN CANprocess_thread */
-	 CAN_Config();
-	 canopen_init();
+  CAN_Config();
+  canopen_init();
   /* Infinite loop */
-  for(;;)
+  for (;;)
   {
-    osDelay(10000);
-//		timerforCAN();
+		CAN_RXmsg_process();
   }
   /* USER CODE END CANprocess_thread */
 }

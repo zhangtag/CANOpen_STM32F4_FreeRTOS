@@ -109,7 +109,7 @@ $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
                     UNS32 SillySlave_obj1016[]={0};
 
 /* index 0x1017 :   Producer Heartbeat Time. */
-                    UNS16 SillySlave_obj1017 = 0x7D0;	/* 2000 */
+                    UNS16 SillySlave_obj1017 = 1000;	/* 2000 */
                     ODCallback_t SillySlave_Index1017_callbacks[] = 
                      {
                        NULL,

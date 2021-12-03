@@ -28,17 +28,25 @@ extern "C" {
 #include "main.h"
 
 /* USER CODE BEGIN Includes */
-extern u8 CAN1_Send_Msg(u8* msg,u8 len);
-extern void CAN_Config(void);
+#include "applicfg.h"
 /* USER CODE END Includes */
 
 extern CAN_HandleTypeDef hcan1;
 
 /* USER CODE BEGIN Private defines */
 extern CAN_TxHeaderTypeDef	TxHeader;      //∑¢ÀÕ
-//CAN_RxHeaderTypeDef	RxHeader;      //Ω” ’
+extern void CAN_Config(void);
 
-#include "applicfg.h"
+extern void CAN_RXmsg_process(void);
+extern u8 CAN1_Send_Msg(u8* msg,u8 len);
+
+extern void timerforCAN(void);
+
+typedef struct
+{
+  CAN_RxHeaderTypeDef Header;
+  u8 Data[8];
+} CANmsgTypeDef;
 
 /** 
  * @brief The CAN message structure 
@@ -53,7 +61,19 @@ typedef struct {
 
 #define Message_Initializer {0,0,0,{0,0,0,0,0,0,0,0}}
 
+
 typedef UNS8 (*canSend_t)(Message *);
+
+/**
+ * @brief The CAN board configuration
+ * @ingroup can
+ */
+struct struct_s_BOARD {
+  char * busname;  /**< The bus name on which the CAN board is connected */
+  char * baudrate; /**< The board baudrate */
+};
+
+
 
 /* USER CODE END Private defines */
 

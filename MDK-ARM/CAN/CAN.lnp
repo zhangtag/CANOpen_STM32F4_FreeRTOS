@@ -3,6 +3,7 @@
 "can\co_slave.o"
 "can\sillyslave.o"
 "can\can_timer.o"
+"can\can_driver.o"
 "can\main.o"
 "can\gpio.o"
 "can\freertos.o"

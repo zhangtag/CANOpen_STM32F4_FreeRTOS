@@ -1,7 +1,5 @@
 #include "SillySlave.h"
 #include "CO_slave.h"
-#include "can.h"
-#include "main.h"
 #include "canfestival.h"
 #include "tim.h"
 
@@ -9,21 +7,21 @@ CO_Data *OD_Data = &SillySlave_Data;
 
 void CO_slave_initialisation(CO_Data *d)
 {
-//    UNS32 PDO1_COBID = 0x0180 + NODE_MASTER;
-//    UNS32 size = sizeof(PDO1_COBID);
+    //    UNS32 PDO1_COBID = 0x0180 + NODE_MASTER;
+    //    UNS32 size = sizeof(PDO1_COBID);
 
-//    printf("CO_slave_initialisation\n");
+    //    printf("CO_slave_initialisation\n");
 
-//    /* sets TXPDO1 COB-ID to match master node ID */
-//    writeLocalDict(
-//        OD_Data,     /*CO_Data* d*/
-//        0x1800,      /*UNS16 index*/
-//        0x01,        /*UNS8 subind*/
-//        &PDO1_COBID, /*void * pSourceData,*/
-//        &size,       /* UNS32 * pExpectedSize*/
-//        RW);         /* UNS8 checkAccess */
+    //    /* sets TXPDO1 COB-ID to match master node ID */
+    //    writeLocalDict(
+    //        OD_Data,     /*CO_Data* d*/
+    //        0x1800,      /*UNS16 index*/
+    //        0x01,        /*UNS8 subind*/
+    //        &PDO1_COBID, /*void * pSourceData,*/
+    //        &size,       /* UNS32 * pExpectedSize*/
+    //        RW);         /* UNS8 checkAccess */
 
-//    /* value sent to master at each SYNC received */
+    //    /* value sent to master at each SYNC received */
     LifeSignal = 0;
 }
 
@@ -76,18 +74,9 @@ UNS32 CO_slave_storeODSubIndex(CO_Data *d, UNS16 wIndex, UNS8 bSubindex)
      * 
      * */
     //    printf("CO_slave_storeODSubIndex : %4.4x %2.2xh\n", wIndex,  bSubindex);
-	return 0;
+    return 0;
 }
 
-
-
-
-
-//void _CO_slave_init(CO_Data* NOT_USED1, UNS32 NOT_USED2)
-//{
-//    setNodeId(OD_Data, NODE_SLAVE);
-//    setState(OD_Data, Initialisation);
-//}
 
 int canopen_init(void)
 {
@@ -103,13 +92,7 @@ int canopen_init(void)
     OD_Data->storeODSubIndex = (void *)CO_slave_storeODSubIndex;
     OD_Data->post_emcy = (void *)CO_slave_post_emcy;
 
-    //canOpen(&board, OD_Data);
-
-    ///TimerInit();
-
-    //StartTimerLoop(&_CO_slave_init);
-	  initTimer();
-		HAL_TIM_Base_Start_IT(&htim13);
+    HAL_TIM_Base_Start_IT(&htim13);
 
     setNodeId(OD_Data, NODE_SLAVE);
     setState(OD_Data, Initialisation);
